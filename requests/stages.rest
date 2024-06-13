@@ -1,0 +1,64 @@
+### Login the default user
+POST {{baseUrl}}/auths/login
+Content-Type: application/json
+
+{
+  "email": "emilien.dieryck@student.vinci.be",
+  "password": "1234"
+
+}
+> {%
+    client.global.set("adminToken", response.body.token);
+%}
+
+### Create a new contact
+POST {{baseUrl}}/contact/started
+Content-Type: application/json
+Authorization: {{adminToken}}
+
+{
+  "studentId": 27,
+  "companyId": 2
+}
+
+### Set that a student meet a company
+PUT {{baseUrl}}/contact/meet
+Content-Type: application/json
+Authorization: {{adminToken}}
+
+{
+  "companyId": 2,
+  "meetingType": "en entreprise",
+  "version": "1"
+}
+
+### Create a new stage
+POST {{baseUrl}}/stage/create
+Content-Type: application/json
+Authorization: {{adminToken}}
+
+{
+
+  "tradeNameCompany": "AXIS SRL",
+  "internshipSupervisorLastName": "testing",
+  "internshipSupervisorFirstName": "test",
+  "internshipProject": "Stage de fin d'étude",
+  "signatureDate": "2023-02-01"
+}
+
+### GET accepete stage
+GET {{baseUrl}}/stage/accepte
+Content-Type: application/json
+Authorization: {{adminToken}}
+
+### PUT update InternshipProject
+PUT {{baseUrl}}/stage/internshipProject
+Content-Type: application/json
+Authorization: {{adminToken}}
+
+{
+  "internshipProject": "stage update subject"
+}
+
+
+

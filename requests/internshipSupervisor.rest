@@ -1,0 +1,30 @@
+### Login the default user
+POST {{baseUrl}}/auths/login
+Content-Type: application/json
+
+{
+  "email": "emilien.dieryck@student.vinci.be",
+  "password": "1234"
+}
+
+> {%
+  client.global.set("token", response.body.token);
+%}
+
+### Create a new internship supervisor
+POST {{baseUrl}}/internshipsupervisor/create
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "firstname": "test",
+  "lastname": "testing",
+  "email": "test.testing2@gmail.com",
+  "phone": "0477777777",
+  "company": 2
+}
+
+### Get all internship supervisors from a company
+GET {{baseUrl}}/internshipsupervisor/all?companyId=4
+Content-Type: application/json
+Authorization: {{token}}

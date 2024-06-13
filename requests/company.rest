@@ -1,0 +1,115 @@
+### Login the default user
+POST {{baseUrl}}/auths/login
+Content-Type: application/json
+
+{
+  "email": "laurent.leleux@vinci.be",
+  "password": "Prof24,z"
+}
+
+> {%
+  client.global.set("teacherToken", response.body.token);
+%}
+
+### Get all company
+GET {{baseUrl}}/company/all
+Content-Type: application/json
+Authorization: {{teacherToken}}
+
+### Get all company by year
+GET {{baseUrl}}/company
+Content-Type: application/json
+Authorization: {{teacherToken}}
+
+### Login the student user
+POST {{baseUrl}}/auths/login
+Content-Type: application/json
+
+{
+  "email": "Caroline.line@student.vinci.be",
+  "password": "mdpuser.1"
+}
+
+> {%
+  client.global.set("adminToken", response.body.token);
+%}
+
+### Create a new company
+POST {{baseUrl}}/company/create
+Content-Type: application/json
+Authorization: {{adminToken}}
+
+{
+  "tradeName": "nomEntreprisex3",
+  "designation": "",
+  "address": "Rue machin 5, 10003 bxl",
+  "phoneNumber": "0499995949",
+  "email": "company.x@entrprise.com"
+}
+
+### Create a new company
+POST {{baseUrl}}/company/create
+Content-Type: application/json
+Authorization: {{adminToken}}
+
+{
+  "tradeName": "entrepriseX",
+  "designation": "",
+  "address": "Rue test",
+  "phoneNumber": "0499995949",
+  "email": "company.x@x.com"
+}
+
+### Create a new company
+POST {{baseUrl}}/company/create
+Content-Type: application/json
+Authorization: {{adminToken}}
+
+{
+  "tradeName": "entrepriseY",
+  "designation": "ZZZ",
+  "address": "Rue test",
+  "phoneNumber": "0499995949",
+  "email": "company.y@z.com"
+}
+
+### Get all company
+GET {{baseUrl}}/company/all
+Content-Type: application/json
+Authorization: {{adminToken}}
+
+### Get all company by year
+GET {{baseUrl}}/company
+Content-Type: application/json
+Authorization: {{teacherToken}}
+
+### Blacklist a company
+PUT {{baseUrl}}/company/blacklist
+Content-Type: application/json
+Authorization: {{teacherToken}}
+
+{
+  "companyId": "1",
+  "userId": "3",
+  "reason": "Raison de la blacklist"
+}
+
+### get
+GET {{baseUrl}}/company/oneCompany?idCompany=1
+Content-Type: application/json
+Authorization: {{teacherToken}}
+
+###Get all contact for The company
+GET {{baseUrl}}/contact/getAllContactForTheCompany?idCompany=1
+Content-Type: application/json
+Authorization: {{teacherToken}}
+
+###Get all contact for The student
+GET {{baseUrl}}/contact/getAllContactForTheStudent?email=theophile.ile@student.vinci.be
+Content-Type: application/json
+Authorization: {{teacherToken}}
+
+###Get the stage for The student
+GET {{baseUrl}}/stage/getStageForTheStudent?idStudent=26
+Content-Type: application/json
+Authorization: {{teacherToken}}

@@ -1,0 +1,65 @@
+### Login the default user
+POST {{baseUrl}}/auths/login
+Content-Type: application/json
+
+{
+  "email": "laurent.leleux@vinci.be",
+  "password": "Prof24,z"
+}
+
+> {%
+  client.global.set("token", response.body.token);
+%}
+
+### Create a new contact
+POST {{baseUrl}}/contact/started
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "studentId": 12,
+  "companyId": 6
+}
+
+### Get all contacts of a student
+GET {{baseUrl}}/contact/all
+Content-Type: application/json
+Authorization: {{token}}
+
+### Decline a contact
+PUT {{baseUrl}}/contact/decline
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "companyId": 100
+}
+
+### Stop following a contact
+PUT {{baseUrl}}/contact/stop
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "companyId": 100
+}
+
+### Set that a student meet a company
+PUT {{baseUrl}}/contact/meet
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "companyId": 6,
+  "meetingType": "en entreprise"
+}
+
+### Set that a student accept a contact
+PUT {{baseUrl}}/contact/accepte
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "companyId": 6
+}
+

@@ -1,0 +1,104 @@
+### Login the default user
+POST {{baseUrl}}/auths/login
+Content-Type: application/json
+
+{
+    "email": "annouck.lancaster@vinci.be",
+    "password": "Admin;10."
+}
+
+> {%
+  client.global.set("adminToken", response.body.token);
+%}
+
+
+### Register a new user
+POST {{baseUrl}}/auths/register
+Content-Type: application/json
+
+{
+  "firstName": "admin",
+  "lastName": "admin",
+  "email": "amia.dmin@vinci.be",
+  "phone": "0499990999",
+  "password": "testPassword",
+  "utilisateurType": "étudiant"
+}
+
+
+### Login user
+POST {{baseUrl}}/auths/login
+Content-Type: application/json
+
+{
+  "email": "emilien.dieryck@student.vinci.be",
+  "password": "1234"
+}
+
+> {%
+  client.global.set("update", response.body.token);
+%}
+
+
+### Update user
+PUT {{baseUrl}}/auths/update
+Content-Type: application/json
+Authorization: {{update}}
+
+{
+  "firstName": "emilien",
+  "lastName": "dieryck",
+  "phone": "049999",
+  "version": 1
+}
+
+
+### Update email & password
+PUT {{baseUrl}}/auths/update
+Content-Type: application/json
+Authorization: {{update}}
+
+{
+  "email": "luca.nicolas@student.vinci.be",
+  "password": "luca",
+  "version": 3
+}
+
+### Login user
+POST {{baseUrl}}/auths/login
+Content-Type: application/json
+
+{
+  "email": "update.update@student.vinci.be",
+  "password": "testPassword"
+}
+
+### Login the  caroline
+POST {{baseUrl}}/auths/login
+Content-Type: application/json
+
+{
+  "email": "Caroline.line@student.vinci.be",
+  "password": "mdpuser.1"
+}
+
+> {%
+  client.global.set("caroline", response.body.token);
+%}
+
+
+### Me
+GET {{baseUrl}}/auths/me
+Content-Type: application/json
+Authorization: {{caroline}}
+
+### List All User
+GET {{baseUrl}}/auths/ListAllUser
+Content-Type: application/json
+Authorization: {{adminToken}}
+
+###Get all contact for The student
+GET {{baseUrl}}/auths/getUserById?studentId=5
+Content-Type: application/json
+Authorization: {{adminToken}}
+

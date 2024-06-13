@@ -1,0 +1,243 @@
+td {
+    padding-left: 10px;
+}
+
+header{
+    background-color: #e9e5e5;
+
+}
+
+.btn-primary {
+  background-color: #b08eaa !important;
+  border:none;
+}
+
+.btn-secondary {
+  background-color: #dac8cb !important;
+  border: none;
+}
+
+.modal-content {
+  border : solid;
+  border-color: #c17f81;
+}
+
+.stage-info {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .stage-info label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .stage-info select,
+  .stage-info input[type="text"],
+  .stage-info input[type="date"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+
+.modal-dialog {
+  color: black;
+}
+
+.table {
+  background-color: #e9e5e5 ;
+}
+.neumorphic {
+  container-type: inline-size;
+  aspect-ratio: 1/1;
+  border: 0.5rem solid transparent;
+  border-radius: 1rem;
+  color: hsl(0 0% 10%);
+  background: none;
+
+  display: grid;
+  place-content: center;
+  gap: 1rem;
+
+  --shadow: -0.5rem -0.5rem 1rem hsl(0 0% 100% / 0.75),
+    0.5rem 0.5rem 1rem hsl(0 0% 50% / 0.5);
+  box-shadow: var(--shadow);
+  outline: none;
+  transition: all 0.1s;
+
+  &:hover,
+  &:focus-visible {
+    color: hsl(7 46% 38%);
+    scale: 1.1;
+  }
+
+  >img {
+    font-size: 31cqi;
+    margin: 0 auto;
+
+  }
+
+  >span {
+    font-family: system-ui, sans-serif;
+    font-size: 16cqi;
+  }
+}
+.text-danger {
+  color: red;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+#but {
+  display: grid;
+  width: min(75rem, 100%);
+  margin-inline: auto;
+  grid-template-columns: repeat(auto-fit, minmax(min(8rem, 100%), 1fr));
+  gap: 2rem;
+}
+
+#allInfoOfOne {
+  padding: 2rem;
+  margin: 0 auto;
+  box-shadow: 0 10px 20px -5px hsl(0 0% 50% / 0.5);
+  border: 1px solid hsl(0 0% 90%);
+  border-radius: 6px;
+  background: hsl(0 0% 100%);
+  overflow: hidden;
+  max-width: min(calc(600px + 8rem), calc(100vw - 2rem));
+  min-width: 340px;
+  margin-top: 20px;
+}
+
+#tableAll {
+  padding: 2rem;
+    margin: 0 auto;
+    box-shadow: 0 10px 20px -5px hsl(0 0% 50% / 0.5);
+    border: 1px solid hsl(0 0% 90%);
+    border-radius: 6px;
+    background: hsl(0 0% 100%);
+    overflow: hidden;
+    max-width: min(calc(1500px + 8rem), calc(100vw - 2rem));
+    min-width: 340px;
+    margin-top: 20px;
+    
+}
+
+h2 {
+  display: flex;
+  gap: 0.25ch;
+  font-size: clamp(1.5rem, 4cqi + 1rem, 3rem);
+  font-weight: 160;
+  margin: 0;
+  grid-column: 1 / -1;
+  margin-left:1%;
+  font-weight: 400;
+}
+
+
+.infos {
+  color: hsl(0 0% 10%);
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.info_image {
+  width: 24px;
+  color: rgb(124, 58, 237);
+  margin-right: 10px;
+}
+#orderByStage, #orderByBlacklist:hover {
+  cursor: pointer;
+}
+.companyNameOnly,.studentNameOnly:hover {
+  cursor: pointer;
+}
+
+
+html {
+  box-sizing: border-box;
+}
+
+
+#panel_static {
+  position: relative;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ddd;
+
+}
+
+#panel_static .panel__content {
+  padding: 3rem;
+}
+
+#panel_sliding {
+  position: absolute;
+  top: -15px;
+  left: -20px;
+  width: 700px;
+  height: 480px;
+  background: #fefefe;
+  box-shadow: 3px -2px 6px 0px rgba(0, 0, 0, 0.4);
+  color: black;
+}
+
+#panel_sliding .panel_content_login {
+  display: none;
+}
+
+.panel__heading {
+  font-size: 1.6rem;
+  margin-top: 2%;
+  margin-left: 2%;
+}
+
+#panel_sliding .panel__heading {
+  color: #e26a6a;
+  text-transform: uppercase;
+}
+
+.panel__copy {
+  font-size: 0.9rem;
+}
+
+
+.panel .btn {
+  min-width: 120px;
+  margin: 1rem 0;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.panel .btn--primary {
+  background: #e26a6a;
+  color: #fefefe;
+  border: 0;
+}
+
+.panel .btn:focus {
+  outline: 0;
+}
+
+.panel a,
+.panel a:focus,
+.panel a:visited,
+.panel a:active {
+  display: block;
+  font-size: 0.7rem;
+  text-decoration: none;
+  color: #aaa;
+}
